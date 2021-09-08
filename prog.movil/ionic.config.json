@@ -1,0 +1,7 @@
+{
+  "name": "prog.movil",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
