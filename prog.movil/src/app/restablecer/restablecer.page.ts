@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {} from '@angular/core'
 
 @Component({
   selector: 'app-restablecer',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./restablecer.page.scss'],
 })
 export class RestablecerPage implements OnInit {
+  
 
   constructor() { }
 
