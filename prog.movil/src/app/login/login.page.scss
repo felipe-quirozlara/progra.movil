@@ -1,0 +1,32 @@
+ion-content{
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    --padding-end: 20px;
+    --padding-start: 20px;
+    --ion-background-color:#080808;
+}
+ion-item{
+    --padding-bottom: 10px;
+}
+ion-button{
+    float: right;
+    width:150px;
+}
+a{
+    float:center;
+    size: 150px;
+}
+ion-label{
+    width: 50px;
+    color: white;
+}
+p{
+float: right;
+color: white;
+}
+h1{
+    color: white;
+}
+h2{
+    color: white;
+}
