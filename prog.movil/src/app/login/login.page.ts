@@ -80,10 +80,14 @@ export class LoginPage implements OnInit {
     toast.present();
   }
   toggled: boolean = false;
-emojitext: string;
- 
-handleSelection(event) {
-  this.emojitext = this.emojitext + " " + event.char;
-}
+  emojitext: string;
+  
+  handleSelection(event) {
+    this.emojitext = this.emojitext + " " + event.char;
+  }
+  public limpiar(){
+    this.usuario.nombreUsuario = '';
+    this.usuario.password = '';
+  }
 
 }
