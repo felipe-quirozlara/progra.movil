@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 // Las clases Router y NavigationExtras son necesarias para que la página login le pase el nombre de usuario a la página home
 import { Router, NavigationExtras } from '@angular/router';
 // La clase ToastController sirve para mostrar mensajes emergente que duran un par de segundos
-import { ToastController } from '@ionic/angular';
+import { AnimationController, ToastController } from '@ionic/angular';
 import { Usuario } from 'src/model/Usuario';
 
 @Component({
@@ -18,13 +18,24 @@ export class LoginPage implements OnInit {
 
   public usuario: Usuario;
  
-  constructor(private router: Router, private toastController: ToastController) {
+  constructor(private router: Router, private toastController: ToastController, private animationCtrl: AnimationController) {
     this.usuario = new Usuario();
     this.usuario.nombreUsuario = '';
     this.usuario.password = '';
   }
 
   public ngOnInit(): void {
+    //metodos de animación
+    const image = this.animationCtrl.create()
+      .addElement(document.querySelector('.qrImage'))
+      .duration(900)
+      .keyframes([
+        {offset: 0, transform: 'rotate(45deg)'},
+        {offset: 1, transform: 'rotate(0)'},
+        
+      ]);
+
+    image.play();
 
     
      this.usuario.nombreUsuario = 'cgomez';
