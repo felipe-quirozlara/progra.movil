@@ -3,7 +3,7 @@ ion-content{
     --padding-bottom: 20px;
     --padding-end: 20px;
     --padding-start: 20px;
-    --ion-background-color:#080808;
+    // --ion-background-color:#080808;
 }
 ion-item{
     --padding-bottom: 10px;
@@ -30,3 +30,11 @@ ion-item{
 // h2{
 //     color: white;
 // }
+
+.qrImage {
+    width: 15rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 0px 20px;
+}

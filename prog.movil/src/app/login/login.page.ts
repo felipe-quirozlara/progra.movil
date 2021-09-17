@@ -27,9 +27,9 @@ export class LoginPage implements OnInit {
   public ngOnInit(): void {
 
     
-     //this.usuario.nombreUsuario = 'cgomez';
-     //this.usuario.password = '123';
-     //this.ingresar();
+     this.usuario.nombreUsuario = 'cgomez';
+     this.usuario.password = '1234';
+    //  this.ingresar();
   }
 
   public restablecer(): void {

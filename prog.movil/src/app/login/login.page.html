@@ -5,15 +5,21 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <ion-card-title class="ion-text-center">
+    <ion-text color="primary">
+      <h1>¡Bienvenido!</h1>
+    </ion-text>
+  </ion-card-title>
+  <img src="https://cdn-icons-png.flaticon.com/512/825/825569.png" alt="" class="qrImage">
   <ion-card>
     <ion-card-header>
-      <ion-card-title class="ion-text-center">Bienvenido</ion-card-title>
+      
     </ion-card-header>
     <ion-card-content>
       <form >
         <ion-item>
-          <ion-label position="floating" >Usuario</ion-label>
-          <ion-input type="text" [(ngModel)]="usuario.nombreUsuario" name="usuario" placeholder="Nombre de Usuario"></ion-input>
+          <ion-label position="floating" >Nombre de Usuario</ion-label>
+          <ion-input type="text" [(ngModel)]="usuario.nombreUsuario" name="usuario" placeholder="Usuario"></ion-input>
           
         </ion-item>
         <ion-item>
@@ -50,42 +56,39 @@
   <ion-grid fixed>
     <ion-row class="ion-justify-content-center">
       <ion-col size="12">
-        <p class="ion-text-center">Olvidaste tu contraseña?</p>
+        <p class="ion-text-center">¿Olvidaste tu contraseña?</p>
         <ion-button shape="block" fill="clear" (click)="restablecer()">Restablecer</ion-button>            
       </ion-col>
       
     </ion-row>
   </ion-grid>
-</ion-content>
-<ion-footer>
-  <ion-toolbar>
-    <ion-grid fixed>
-      <ion-row>
-        <ion-col size="6">
-          <p>Contactanos</p>
-    
-          <button ion-button clear icon-only (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'top'"
-              (emojiPickerSelect)="handleSelection($event)">
-          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384023.png" data-src="https://cdn-icons-png.flaticon.com/128/1383/1383269.png" alt="whatsapp icono gratis" title="whatsapp icono gratis" width="64" height="64" class="lzy lazyload--done" srcset="https://cdn-icons-png.flaticon.com/512/1384/1384023.png">
-          </button>
-          <button ion-button clear icon-only (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'top'"
-              (emojiPickerSelect)="handleSelection($event)">
-            <img src="https://cdn-icons-png.flaticon.com/128/270/270021.png" data-src="https://cdn-icons-png.flaticon.com/128/270/270021.png" alt="gmail icono gratis" title="gmail icono gratis" width="64" height="64" class="lzy lazyload--done" srcset="https://cdn-icons-png.flaticon.com/128/270/270021.png 4x">
-          </button>
-        </ion-col>
-        <ion-col size="6">
-          <p>Disponible en:</p>
-          <button ion-button clear icon-only (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'top'"
-              (emojiPickerSelect)="handleSelection($event)">
-          <img src="https://image.flaticon.com/icons/png/128/518/518705.png" data-src="https://image.flaticon.com/icons/png/128/518/518705.png" alt="Android free icon" title="Android free icon" width="64" height="64" class="lzy lazyload--done" srcset="https://image.flaticon.com/icons/png/128/518/518705.png 4x">
-          </button>
-          <button ion-button clear icon-only (click)="toggled = !toggled" [(emojiPickerIf)]="toggled" [emojiPickerDirection]="'top'"
-              (emojiPickerSelect)="handleSelection($event)">
-        <img src="https://cdn-icons-png.flaticon.com/128/2504/2504884.png" data-src="https://cdn-icons-png.flaticon.com/128/2504/2504884.png" alt="Apple premium icon" title="Apple premium icon" width="64" height="64" class="lzy lazyload--done" srcset="https://cdn-icons-png.flaticon.com/128/2504/2504884.png 4x">
-          </button>
+  <ion-grid class="ion-padding-top" fixed>
+    <ion-row>
+      <ion-col size="6">
+        <p>Contáctanos</p>
   
-          </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-footer>
+        <button ion-button clear icon-only (click)="toggled = !toggled" 
+            (emojiPickerSelect)="handleSelection($event)">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384023.png" data-src="https://cdn-icons-png.flaticon.com/128/1383/1383269.png" alt="whatsapp icono gratis" title="whatsapp icono gratis" width="64" height="64" class="lzy lazyload--done" srcset="https://cdn-icons-png.flaticon.com/512/1384/1384023.png">
+        </button>
+        <button ion-button clear icon-only (click)="toggled = !toggled" 
+            (emojiPickerSelect)="handleSelection($event)">
+          <img src="https://cdn-icons-png.flaticon.com/512/646/646094.png" data-src="https://cdn-icons-png.flaticon.com/128/270/270021.png" alt="gmail icono gratis" title="gmail icono gratis" width="64" height="64" class="lzy lazyload--done" srcset="https://cdn-icons-png.flaticon.com/512/646/646094.png 4x">
+        </button>
+      </ion-col>
+      <ion-col size="6">
+        <p>Disponible en</p>
+        <button ion-button clear icon-only (click)="toggled = !toggled" 
+            (emojiPickerSelect)="handleSelection($event)">
+        <img src="https://cdn-icons-png.flaticon.com/512/38/38002.png" data-src="https://cdn-icons-png.flaticon.com/512/38/38002.png" alt="Android free icon" title="Android free icon" width="64" height="64" class="lzy lazyload--done" srcset="https://cdn-icons-png.flaticon.com/512/38/38002.png 4x">
+        </button>
+        <button ion-button clear icon-only (click)="toggled = !toggled" 
+            (emojiPickerSelect)="handleSelection($event)">
+      <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" data-src="https://cdn-icons-png.flaticon.com/512/731/731985.png" alt="Apple premium icon" title="Apple premium icon" width="64" height="64" class="lzy lazyload--done" srcset="https://cdn-icons-png.flaticon.com/512/731/731985.png 4x">
+        </button>
+
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
