@@ -43,7 +43,7 @@ export class HomePage implements OnInit {
       if (this.router.getCurrentNavigation().extras.state) {
 
         this.usuario = this.router.getCurrentNavigation().extras.state.usuario;
-
+        
       } else {
         
         this.router.navigate(['/login']);
@@ -53,21 +53,20 @@ export class HomePage implements OnInit {
 
   public ngOnInit() {
   //metodos de animación
-
-  //Calcular el ancho de la pantalla usasda
-  const ancho = window.innerWidth / 2 - 110 ;
-
-  
-    
-
   const bienvenido = this.animationCtrl.create()
     .addElement(document.querySelector('.bienvenido'))
-    .duration(1500)
-    .fromTo('transform', 'translateX(0px)', `translateX(${ancho}px)`); // transformación al final de la página
+    .duration(550)
+    .iterations(Infinity)
+    .keyframes([
+      {offset: 0, transform: 'rotate(0)'},
+      {offset: 0.5, transform: 'rotate(5deg)'},
+      {offset: 1, transform: 'rotate(0deg)'},
 
+      
+    ]);
+          
 
-    bienvenido.play();
-
+  bienvenido.play();
 
   this.persona.nombre = 'Cristián';
   this.persona.apellido = 'Gómez';
@@ -76,7 +75,9 @@ export class HomePage implements OnInit {
 
 }
 
-public limpiarFormulario(): void {
+ 
+
+  public limpiarFormulario(): void {
   
   for (const [key, value] of Object.entries(this.persona)) {
   

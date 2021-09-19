@@ -28,10 +28,13 @@ export class LoginPage implements OnInit {
     //metodos de animación
     const image = this.animationCtrl.create()
       .addElement(document.querySelector('.qrImage'))
-      .duration(900)
+      .duration(1500)
+      .iterations(Infinity)
       .keyframes([
-        {offset: 0, transform: 'rotate(45deg)'},
-        {offset: 1, transform: 'rotate(0)'},
+        {offset: 0, transform: 'scale(1)'},
+        {offset: 0.5, transform: 'scale(1.1)'},
+        {offset: 1, transform: 'scale(1)'},
+
         
       ]);
 
