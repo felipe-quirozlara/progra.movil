@@ -51,7 +51,7 @@ export class HomePage implements OnInit {
    });
   }
 
-public ngOnInit() {
+  public ngOnInit() {
   //metodos de animación
 
   //Calcular el ancho de la pantalla usasda
@@ -114,17 +114,9 @@ public limpiarFormulario(): void {
     await alert.present();
   }
 
-  public animacionTitulo(animationCtrl: AnimationController){
-    const animation: Animation =  this.animationCtrl.create()
-   .addElement(document.querySelector('.titulo'))
-   .duration(2500)
-   .iterations(Infinity)
-   .fromTo('transform', 'translateX(0px)', 'translateX(250px)')
-   .fromTo('opacity', '1', '0.2');
-   document.querySelector('#play').addEventListener('click', () => {
-    animation.play();
-
-  });
+  public qrreader(){
+    this.router.navigate(['/qrreader']);
   }
+  
 
 }

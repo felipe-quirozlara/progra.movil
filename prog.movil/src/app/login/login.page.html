@@ -66,27 +66,21 @@
     <ion-row>
       <ion-col size="6">
         <p>Contáctanos</p>
-  
-        <button ion-button clear icon-only (click)="toggled = !toggled" 
-            (emojiPickerSelect)="handleSelection($event)">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384023.png" data-src="https://cdn-icons-png.flaticon.com/128/1383/1383269.png" alt="whatsapp icono gratis" title="whatsapp icono gratis" width="64" height="64" class="lzy lazyload--done" srcset="https://cdn-icons-png.flaticon.com/512/1384/1384023.png">
-        </button>
-        <button ion-button clear icon-only (click)="toggled = !toggled" 
-            (emojiPickerSelect)="handleSelection($event)">
-          <img src="https://cdn-icons-png.flaticon.com/512/646/646094.png" data-src="https://cdn-icons-png.flaticon.com/128/270/270021.png" alt="gmail icono gratis" title="gmail icono gratis" width="64" height="64" class="lzy lazyload--done" srcset="https://cdn-icons-png.flaticon.com/512/646/646094.png 4x">
-        </button>
+        <ion-button href="https://www.whatsapp.com/" fill="clear" target="_blank">
+          <ion-icon name="logo-whatsapp" size="large"></ion-icon>
+        </ion-button>
+        <ion-button href="https://mail.google.com/" fill="clear" target="_blank">
+          <ion-icon name="mail-outline" size="large"></ion-icon>
+        </ion-button>
       </ion-col>
       <ion-col size="6">
         <p>Disponible en</p>
-        <button ion-button clear icon-only (click)="toggled = !toggled" 
-            (emojiPickerSelect)="handleSelection($event)">
-        <img src="https://cdn-icons-png.flaticon.com/512/38/38002.png" data-src="https://cdn-icons-png.flaticon.com/512/38/38002.png" alt="Android free icon" title="Android free icon" width="64" height="64" class="lzy lazyload--done" srcset="https://cdn-icons-png.flaticon.com/512/38/38002.png 4x">
-        </button>
-        <button ion-button clear icon-only (click)="toggled = !toggled" 
-            (emojiPickerSelect)="handleSelection($event)">
-      <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" data-src="https://cdn-icons-png.flaticon.com/512/731/731985.png" alt="Apple premium icon" title="Apple premium icon" width="64" height="64" class="lzy lazyload--done" srcset="https://cdn-icons-png.flaticon.com/512/731/731985.png 4x">
-        </button>
-
+        <ion-button href="https://play.google.com/store" fill="clear" target="_blank">
+          <ion-icon name="logo-android" size="large"></ion-icon>
+        </ion-button>
+        <ion-button href="https://www.apple.com/store" fill="clear" target="_blank">
+          <ion-icon name="logo-apple" size="large"></ion-icon>
+        </ion-button>
         </ion-col>
     </ion-row>
   </ion-grid>
