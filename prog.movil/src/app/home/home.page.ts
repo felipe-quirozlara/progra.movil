@@ -68,10 +68,10 @@ export class HomePage implements OnInit {
 
   bienvenido.play();
 
-  this.persona.nombre = 'Cristián';
-  this.persona.apellido = 'Gómez';
+  this.persona.nombre = 'Admin';
+  this.persona.apellido = 'Tapia';
   this.persona.nivelEducacional.id = 6;
-  this.persona.fechaNacimiento = '1972-12-26';
+  this.persona.fechaNacimiento = '1992-12-26';
 
 }
 

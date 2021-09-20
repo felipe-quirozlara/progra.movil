@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
     image.play();
 
     
-     this.usuario.nombreUsuario = 'cgomez';
+     this.usuario.nombreUsuario = 'admin';
      this.usuario.password = '1234';
     //  this.ingresar();
   }

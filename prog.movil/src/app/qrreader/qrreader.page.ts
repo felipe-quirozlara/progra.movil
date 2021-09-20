@@ -39,21 +39,21 @@ export class QrreaderPage {
   }
  
   // Helper functions
-  async showQrToast() {
-    const toast = await this.toastCtrl.create({
-      message: `Open ${this.scanResult}?`,
-      position: 'top',
-      buttons: [
-        {
-          text: 'Open',
-          handler: () => {
-            window.open(this.scanResult, '_system', 'location=yes');
-          }
-        }
-      ]
-    });
-    toast.present();
-  }
+  // async showQrToast() {
+  //   const toast = await this.toastCtrl.create({
+  //     message: `Open ${this.scanResult}?`,
+  //     position: 'top',
+  //     buttons: [
+  //       {
+  //         text: 'Open',
+  //         handler: () => {
+  //           window.open(this.scanResult, '_system', 'location=yes');
+  //         }
+  //       }
+  //     ]
+  //   });
+  //   toast.present();
+  // }
  
   reset() {
     this.scanResult = null;
@@ -110,7 +110,7 @@ export class QrreaderPage {
       if (code) {
         this.scanActive = false;
         this.scanResult = code.data;
-        this.showQrToast();
+        // this.showQrToast();
       } else {
         if (this.scanActive) {
           requestAnimationFrame(this.scan.bind(this));
@@ -142,7 +142,7 @@ export class QrreaderPage {
    
       if (code) {
         this.scanResult = code.data;
-        this.showQrToast();
+        // this.showQrToast();
       }
     };
     img.src = URL.createObjectURL(file);
