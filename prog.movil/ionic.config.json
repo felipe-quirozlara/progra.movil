@@ -1,7 +1,6 @@
 {
-  "name": "prog.movil",
+  "name": "skeleton-app",
   "integrations": {
-    "capacitor": {},
     "cordova": {}
   },
   "type": "angular"

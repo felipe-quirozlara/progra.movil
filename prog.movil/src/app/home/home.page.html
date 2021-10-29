@@ -1,73 +1,35 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title class="titulo">
-      Asistencia QR App
+<!-- Se mueve todo de la actividad anterior a MisDatos -->
+<!-- Comienza el Header -->
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-title>
+      SkeletonAPP
     </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="logout()" color="danger" fill="outline">
+        Salir
+        <ion-icon slot="end" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment value="perfil" (ionChange)="segmentChanged($event)">
+      <ion-segment-button  value="perfil">
+        <ion-icon name="home"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="experiencias">
+        <ion-icon name="briefcase-outline"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="certificaciones">
+        <ion-icon name="school-outline"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true" class="ion-padding-horizontal">
-  <ion-title class="ion-padding-top">
-    <ion-label>
-      <h1 class="ion-text-center bienvenido" id="bienvenido">Hola! {{ usuario.nombreUsuario }}</h1>
-    </ion-label>
-  </ion-title>
-  <b class="ion-text-center">
-    <h4>Información Personal</h4>
-  </b>
+<!-- Termina el Header -->
 
-  <ion-item>
-    <ion-label position="floating">Nombre</ion-label>
-    <ion-input type="text" [(ngModel)]="persona.nombre"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label position="floating">Apellido</ion-label>
-    <ion-input type="text" [(ngModel)]="persona.apellido"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Educación</ion-label>
-    <ion-select placeholder="Seleccione nivel" 
-        [(ngModel)]="persona.nivelEducacional.id">
-      <ion-select-option *ngFor="let nivelEducacional of nivelesEducacionales" 
-        [value]="nivelEducacional.id">
-          {{nivelEducacional.nombre}}
-      </ion-select-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Fecha Nacimiento</ion-label>
-    <ion-input type="date" 
-      [(ngModel)]="persona.fechaNacimiento">
-    </ion-input>
-  </ion-item>
-
-  <ion-grid>
-    <ion-row>
-      <ion-col col-6>
-        <ion-button expand="block" 
-        fill="clear" 
-        shape="round" (click)="limpiarFormulario()">
-          Limpiar
-        </ion-button>
-      </ion-col>
-      <ion-col col-6>
-        <ion-button expand="block" 
-        shape="round" fill="outline" (click)="mostrarDatosPersona()">
-          Mostrar
-        </ion-button>
-      </ion-col>
-      
-    </ion-row>
-    <ion-row>
-      <ion-col size="12">
-        <ion-button (click)="qrreader()"  expand="block" color="tertiary">
-          Escanear Código QR
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>  
-  
-  
+<ion-content>
+  <!-- Aquí se desplegara todos los Component que se declararon como children en
+  HomePageModule -->
+  <ion-router-outlet></ion-router-outlet>
+</ion-content>

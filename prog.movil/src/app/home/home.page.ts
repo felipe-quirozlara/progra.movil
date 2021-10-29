@@ -1,123 +1,39 @@
-import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view/util';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
-import { Usuario } from 'src/model/Usuario';
-import { NivelEducacional } from 'src/model/NivelEducacional';
-import { Persona } from 'src/model/Persona';
-import { Animation, AnimationController } from '@ionic/angular';
-import { createAnimation } from '@ionic/core';
-
-
-
-
-
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { DBTaskService } from '../services/dbtask.service';
+import { AuthenticationService } from '../services/authentication.service';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-
-export class HomePage implements OnInit {
-
-  public usuario: Usuario;
-
-  public nivelesEducacionales: NivelEducacional[] = [
-    {id: 1, nombre: 'Básica Incompleta'},
-    {id: 2, nombre: 'Básica Completa'},
-    {id: 3, nombre: 'Media Incompleta'},
-    {id: 4, nombre: 'Media Completa'},
-    {id: 5, nombre: 'Superior Incompleta'},
-    {id: 6, nombre: 'Superior Completa'}
-  ];
-
-  public persona: Persona = new Persona();
-
-   constructor(
-        private activeroute: ActivatedRoute
-      , private router: Router
-      , private alertController: AlertController
-      , private animationCtrl: AnimationController) {
-
-    this.activeroute.queryParams.subscribe(params => {       
-      if (this.router.getCurrentNavigation().extras.state) {
-
-        this.usuario = this.router.getCurrentNavigation().extras.state.usuario;
-        
-      } else {
-        
-        this.router.navigate(['/login']);
-      }
-   });
-  }
-
-  public ngOnInit() {
-  //metodos de animación
-  const bienvenido = this.animationCtrl.create()
-    .addElement(document.querySelector('.bienvenido'))
-    .duration(550)
-    .iterations(Infinity)
-    .keyframes([
-      {offset: 0, transform: 'rotate(0)'},
-      {offset: 0.5, transform: 'rotate(5deg)'},
-      {offset: 1, transform: 'rotate(0deg)'},
-
-      
-    ]);
-          
-
-  bienvenido.play();
-
-  // this.persona.nombre = 'Admin';
-  // this.persona.apellido = 'Tapia';
-  // this.persona.nivelEducacional.id = 6;
-  // this.persona.fechaNacimiento = '1992-12-26';
-
-}
-
- 
-
-  public limpiarFormulario(): void {
+export class HomePage {
   
-  for (const [key, value] of Object.entries(this.persona)) {
-  
-      Object.defineProperty(this.persona, key, {value: ''});
-    }
+  constructor(private router: Router,public dbtaskService: DBTaskService,public authenticationSerive:AuthenticationService) {
+    
   }
-
-  public mostrarDatosPersona(): void {
-
-    if (this.persona.nombre.trim() === '' && this.persona.apellido === '') {
-      this.presentAlert('Datos personales', 'Para mostrar los datos de la persona, '
-        + 'al menos debe tener un valor para el nombre o el apellido.');
-      return;
-    }
-
-    const mensaje =
-        '<br>Usuario: ' + this.usuario.nombreUsuario
-      + '<br>Nombre: ' + this.persona.nombre
-      + '<br>Apellido: ' + this.persona.apellido
-      + '<br>Educación: ' + this.persona.nivelEducacional.id + ' - '
-      + this.nivelesEducacionales.find(
-          n => n.id === this.persona.nivelEducacional.id).nombre
-      + '<br>Nacimiento: ' + this.persona.fechaNacimiento;
-
-    this.presentAlert('Datos personales', mensaje);
+  /**
+   * Función que permite navegar entre componentes
+   * mediante la URL
+   * @param $event 
+   */
+  segmentChanged($event){
+    console.log($event.detail.value);
+    let direction=$event.detail.value;
+    this.router.navigate(['home/'+direction]);
   }
-
-  public async presentAlert(titulo: string, mensaje: string) {
-    const alert = await this.alertController.create({
-      header: titulo,
-      message: mensaje,
-      buttons: ['OK']
-    });
-
-    await alert.present();
+  /**
+   * Antes de que se muestre la visual
+   * se redirecciona a la url especifica
+   */
+  ionViewWillEnter(){
+    this.router.navigate(['home/perfil']);
   }
-
-  public qrreader(){
-    this.router.navigate(['/qrreader']);
+  /**
+   * Función que permite cerrar la sesión actual
+   * actualiza el sesion_data de SQLite
+   */
+  logout(){
+    this.authenticationSerive.logout();
   }
-  
-
 }
