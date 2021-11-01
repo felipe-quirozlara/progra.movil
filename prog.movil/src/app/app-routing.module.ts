@@ -10,6 +10,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
     canActivate: [AuthGardService]
   },
+  
   {
     path: '',
     redirectTo: 'login',

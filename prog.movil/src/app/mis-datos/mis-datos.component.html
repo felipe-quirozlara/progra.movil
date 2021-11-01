@@ -25,7 +25,9 @@
   <ion-item class="ion-padding-horizontal">
     <ion-label position="stacked" class="ion-padding-bottom">Educación</ion-label>
     <ion-select placeholder="Seleccione nivel" [(ngModel)]="data.education">
-      <ion-select-option *ngFor="let niv of niveles" [value]="niv.id">{{niv.nivel}}</ion-select-option>
+      <ion-select-option *ngFor="let niv of niveles" [value]="niv.id">
+        {{niv}}
+      </ion-select-option>
     </ion-select>
   </ion-item>
   <ion-item class="ion-padding-horizontal">

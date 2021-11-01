@@ -1,30 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { NivelEducacional } from 'src/model/NivelEducacional';
+import { Persona } from 'src/model/Persona';
+
 
 @Component({
   selector: 'app-mis-datos',
   templateUrl: './mis-datos.component.html',
   styleUrls: ['./mis-datos.component.scss'],
 })
+
+
 export class MisDatosComponent implements OnInit {
 
+  
 
   ngOnInit() {}
   usuario:String;
-  niveles:any[]=[
-    {id:1,nivel:"Basica Incompleta"},
-    {id:2,nivel:"Basica Completa"},
-    {id:3,nivel:"Media Incompleta"},
-    {id:4,nivel:"Media Completa"},
-    {id:5,nivel:"Media Incompleta"},
-    {id:6,nivel:"Superior Completa"}
+  public niveles:NivelEducacional[]=[
+    {id: 1, nombre: 'Básica Incompleta'},
+    {id: 2, nombre: 'Básica Completa'},
+    {id: 3, nombre: 'Media Incompleta'},
+    {id: 4, nombre: 'Media Completa'},
+    {id: 5, nombre: 'Superior Incompleta'},
+    {id: 6, nombre: 'Superior Completa'}
   ]
-  data:any={
-    nombre:"",
-    apellido:"",
-    education:"",
-    nacimiento:""
-  };
+  public data: Persona = new Persona();
   constructor(public alertController: AlertController) {
 
   }

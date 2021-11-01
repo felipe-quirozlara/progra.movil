@@ -3,7 +3,7 @@
 <ion-header [translucent]="false">
   <ion-toolbar>
     <ion-title>
-      SkeletonAPP
+      Scanner Assist
     </ion-title>
     <ion-buttons slot="primary">
       <ion-button (click)="logout()" color="danger" fill="outline">
@@ -15,12 +15,15 @@
   <ion-toolbar>
     <ion-segment value="perfil" (ionChange)="segmentChanged($event)">
       <ion-segment-button  value="perfil">
+        <ion-label>Mis datos</ion-label>
         <ion-icon name="home"></ion-icon>
       </ion-segment-button>
       <ion-segment-button value="experiencias">
+        <ion-label>Experiencia</ion-label>
         <ion-icon name="briefcase-outline"></ion-icon>
       </ion-segment-button>
       <ion-segment-button value="certificaciones">
+        <ion-label>Certificaciones</ion-label>
         <ion-icon name="school-outline"></ion-icon>
       </ion-segment-button>
     </ion-segment>

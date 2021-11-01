@@ -4,6 +4,7 @@ import { HomePage } from './home.page';
 import { CertificacionesComponent } from '../certificaciones/certificaciones.component';
 import { ExperienciaLaboralComponent } from '../experiencia-laboral/experiencia-laboral.component';
 import { MisDatosComponent } from '../mis-datos/mis-datos.component';
+import { CommonModule } from '@angular/common';
 // Se declaran las rutas hijas que se cargaran al interior de Page Home
 const routes: Routes = [
   {
@@ -27,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes), CommonModule],
   exports: [RouterModule]
 })
 export class HomePageRoutingModule {}
