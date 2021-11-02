@@ -32,6 +32,7 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.createDatabase();
+      
       this.authenticationService.authState.subscribe(state => {
         if (state) {
           this.router.navigate(['home']);
@@ -54,4 +55,6 @@ export class AppComponent {
     }) // Si todo sale bien, muestra por consola el log del db
     .catch(error=>{console.error('sadasd');}); // Si sale algo mal, muestra por consola el error
   }
+
+  
 }

@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { MisDatosComponent } from '../mis-datos/mis-datos.component';
 
 
 @NgModule({
@@ -14,9 +15,12 @@ import { BrowserModule } from '@angular/platform-browser';
     FormsModule,
     IonicModule,
     // See: HomePageRoutingModule
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    FormsModule
   ],
   declarations: [HomePage],
-  entryComponents:[]
+  entryComponents:[
+    MisDatosComponent,
+  ]
 })
 export class HomePageModule {}
