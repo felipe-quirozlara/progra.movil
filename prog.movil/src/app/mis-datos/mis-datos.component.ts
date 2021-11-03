@@ -21,9 +21,10 @@ export class MisDatosComponent implements OnInit {
   
 
   ngOnInit() {
+    
     this.getUser();
-    this.getDatos();
-    this.dbtaskService.getSession();
+    
+    
   }
   usuario:String;
   constructor(
@@ -33,7 +34,7 @@ export class MisDatosComponent implements OnInit {
     ) {
 
   }
-  public nivelesEducacionales: NivelEducacional[] = [
+  public nivelesEducacionales: any[] = [
     {id: 1, nombre: 'Básica Incompleta'},
     {id: 2, nombre: 'Básica Completa'},
     {id: 3, nombre: 'Media Incompleta'},
@@ -74,45 +75,7 @@ export class MisDatosComponent implements OnInit {
     })
   }
 
-  postDatos(){
-    this.dbtaskService.createDatos(this.usuario, this.data).
-      then((response)=>{
-        console.log("logrado");
-        
-      })
-      .catch((response)=>{
-        console.log(response);
-        
-      })
-  }
-
-  getDatos(){
-    this.dbtaskService.getDatos(this.usuario).
-      then((response)=>{
-        console.log("datos obtenidos");
-        console.log(response);
-        
-        
-      })
-      .catch((response)=>{
-        
-        console.log("no se obtuvo los datos");
-        
-        
-      })
-  }
-
-  deleteDatos(){
-    this.dbtaskService.deleteDatos(this.usuario)
-      .then(()=>{
-        console.log("Datos eliminados");
-        
-      })
-      .catch(()=>{
-        console.log("No se pudo eliminar datos");
-        
-      })
-  }
+  
   
 
   async presentAlert(titulo:string,message:string) {

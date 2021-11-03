@@ -50,6 +50,7 @@ export class AppComponent {
       name:'data.db', // Se llamara data
       location:'default'
     }).then((db)=>{
+      
       this.dbTaskService.setDatabase(db);
       this.dbTaskService.createTables();
     }) // Si todo sale bien, muestra por consola el log del db
