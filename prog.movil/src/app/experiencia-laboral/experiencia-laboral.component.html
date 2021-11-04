@@ -1,3 +1,49 @@
-<p>
-  experiencia-laboral works!
-</p>
+<ion-content [fullscreen]="true" class="ion-padding-horizontal">
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Experencia Laboral</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item class="ion-padding-horizontal">
+        <ion-label position="stacked">Nombre de la empresa</ion-label>
+        <ion-input type="text" [(ngModel)]="data.nombre"></ion-input>
+        <!--[(ngModel)]="data.nombre"  -->
+      </ion-item>
+      <ion-item class="ion-padding-horizontal">
+        <ion-label position="stacked">Cargo</ion-label>
+        <ion-input type="text" [(ngModel)]="data.cargo"></ion-input>
+        <!--[(ngModel)]="data.nombre"  -->
+      </ion-item>
+      <ion-item class="ion-padding-horizontal">
+        <ion-label position="stacked">Año de inicio</ion-label>
+        <ion-input type="date" [(ngModel)]="data.anio"></ion-input>
+      </ion-item>
+      <ion-item class="ion-padding-horizontal">
+        <ion-label position="stacked" >¿Actualmente trabajando?</ion-label>
+          <ion-checkbox [(ngModel)]="data.trabajando"></ion-checkbox>
+      </ion-item>
+      <ion-item class="ion-padding-horizontal">
+        <ion-label position="stacked">Año de Fin</ion-label>
+        <ion-input type="date" [(ngModel)]="data.ano_fin"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button expand="block" shape="round" (click)="deleteData()">
+          Borra
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button expand="block" shape="round" (click)="postData()">
+          Guardar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>>
+

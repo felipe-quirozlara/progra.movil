@@ -3,6 +3,9 @@ import { AlertController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { NivelEducacional } from 'src/model/NivelEducacional';
 import { Persona } from 'src/model/Persona';
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
+import { IonicStorageService } from '../services/ionic-storage.service';
 
 
 @Component({
@@ -16,7 +19,9 @@ export class MisDatosComponent implements OnInit {
 
   
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getUser();
+  }
   usuario:String;
   public niveles:NivelEducacional[]=[
     {id: 1, nombre: 'Básica Incompleta'},
@@ -27,7 +32,7 @@ export class MisDatosComponent implements OnInit {
     {id: 6, nombre: 'Superior Completa'}
   ]
   public data: Persona = new Persona();
-  constructor(public alertController: AlertController) {
+  constructor(public alertController: AlertController,private router: Router,private storage:Storage, private ionicStorage:IonicStorageService) {
 
   }
   /**
@@ -47,6 +52,52 @@ export class MisDatosComponent implements OnInit {
     this.presentAlert("Usuario","Su nombre es "+this.data.nombre+" "+this.data.apellido) ||
     // ELSE 
     this.presentAlert("Usuario","No ingreso nada");
+  }
+
+  goApipage(){
+    this.router.navigate(['/api-page']);
+  }
+
+  getUser(){
+    this.storage.get("USER_DATA")
+      .then((data)=>{
+        this.usuario = data.user_name
+      })
+  }
+
+  saveUser(){
+    this.ionicStorage.postExperiencia(this.usuario, this.data);
+  }
+
+  getUserdata(){
+    this.storage.get("USER_DATA")
+    .then(response=>{
+      this.storage.get('datos'+response.user_name)
+        .then(cal=>{
+          let datos = JSON.parse(cal)
+          this.data.nombre = datos.nombre;
+          this.data.apellido = datos.apellido;
+          this.data.fechaNacimiento = datos.fechaNacimiento;
+          this.data.nivelEducacional = datos.nivelEducacional;
+                   
+        })
+        .catch(err=>console.log()
+        )
+      
+      this.usuario = response.user_name;
+      
+    })
+  }
+
+  deleteData(){
+    this.storage.remove('datos'+this.usuario)
+    .then(cal=>console.log("Datos removido"))
+    .catch(cal=>console.log("No se pudo eliminar datos"))
+    
+  }
+
+  goQRpage(){
+    this.router.navigate(['/qrreader']);
   }
 
   async presentAlert(titulo:string,message:string) {

@@ -21,10 +21,29 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'api-page',
+    loadChildren: () => import('./pages/api-page/api-page.module').then( m => m.ApiPagePageModule)
+  },
+  {
+    path: 'restablecer',
+    loadChildren: () => import('./restablecer/restablecer.module').then( m => m.RestablecerPageModule)
+  },
+  {
+    path: 'qrreader',
+    loadChildren: () => import('./qrreader/qrreader.module').then( m => m.QrreaderPageModule)
+  },
+  {
     // En caso de cualquier error en la ruta se redirecciona al Not Found
     path: '**',
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
-  },
+  }
+  
+
+  
+
+  
+  
+
 ];
 
 @NgModule({

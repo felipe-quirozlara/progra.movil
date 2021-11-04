@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController, AlertController } from '@ionic/angular';
+import { ToastController, AlertController, AnimationController } from '@ionic/angular';
 
 import { DBTaskService } from '../services/dbtask.service';
 import { Router } from '@angular/router';
@@ -25,8 +25,23 @@ export class LoginPage implements OnInit {
     public alertController: AlertController,
     private router: Router,
     private storage: Storage,
-    public authenticationSerive:AuthenticationService) {}
-  ngOnInit() {}
+    public authenticationSerive:AuthenticationService,
+    private animationCtrl: AnimationController) {}
+  ngOnInit() {
+    const image = this.animationCtrl.create()
+      .addElement(document.querySelector('.qrImage'))
+      .duration(1500)
+      .iterations(Infinity)
+      .keyframes([
+        {offset: 0, transform: 'scale(1)'},
+        {offset: 0.5, transform: 'scale(1.1)'},
+        {offset: 1, transform: 'scale(1)'},
+
+        
+      ]);
+
+    image.play();
+  }
   /**
    * Función que permite el inicio de sesión y acceder
    * al Home
@@ -102,6 +117,10 @@ export class LoginPage implements OnInit {
       }
     );
     toast.present();
+  }
+
+  restablecer(){
+    this.router.navigate(['/restablecer']);
   }
   /**
    * Función parte del ciclo de vida de un componente

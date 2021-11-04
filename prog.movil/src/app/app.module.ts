@@ -15,11 +15,12 @@ import { DBTaskService } from './services/dbtask.service';
 import { AuthGardService } from './services/auth-gard.service';
 import { AuthenticationService } from './services/authentication.service';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(), CommonModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(), CommonModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,

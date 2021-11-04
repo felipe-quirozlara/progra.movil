@@ -52,6 +52,8 @@ export class AuthenticationService {
           // Se rederige al login
           this.router.navigate(['login']);
           this.authState.next(false);
+        }else{
+          this.storage.remove("USER_DATA");
         }
       })
       .catch((error)=>console.error(error))

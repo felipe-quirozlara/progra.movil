@@ -6,6 +6,9 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { ExperienciaLaboralComponent } from '../experiencia-laboral/experiencia-laboral.component';
+import { CertificacionesComponent } from '../certificaciones/certificaciones.component';
+import { MisDatosComponent } from '../mis-datos/mis-datos.component';
 
 
 @NgModule({
@@ -16,7 +19,11 @@ import { BrowserModule } from '@angular/platform-browser';
     // See: HomePageRoutingModule
     HomePageRoutingModule
   ],
-  declarations: [HomePage],
+  declarations: [
+    HomePage,
+    ExperienciaLaboralComponent,
+    CertificacionesComponent,
+    MisDatosComponent],
   entryComponents:[]
 })
 export class HomePageModule {}

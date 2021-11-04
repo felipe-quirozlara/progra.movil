@@ -46,11 +46,14 @@ export class AppComponent {
    */
   private createDatabase(){
     this.sqlite.create({ // Se usa la función create para crear la base de datos
-      name:'data.db', // Se llamara data
+      name:'dataa.db', // Se llamara data
       location:'default'
     }).then((db)=>{
+      
+      
       this.dbTaskService.setDatabase(db);
       this.dbTaskService.createTables();
+      
     }) // Si todo sale bien, muestra por consola el log del db
     .catch(error=>{console.error('sadasd');}); // Si sale algo mal, muestra por consola el error
   }

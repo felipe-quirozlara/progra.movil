@@ -35,5 +35,7 @@ export class HomePage {
    */
   logout(){
     this.authenticationSerive.logout();
+    this.router.navigate(['/login'])
+
   }
 }

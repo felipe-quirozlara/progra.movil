@@ -36,7 +36,7 @@ export class DBTaskService {
     );
     CREATE TABLE IF NOT EXISTS experiencia
     (
-      id NUMBER PRIMARY KEY AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       empresa TEXT NOT NULL,
       anio_incio TEXT NOT NULL,
       trabajo_actual INTEGER(1) NOT NULL,
@@ -45,13 +45,13 @@ export class DBTaskService {
     );
     CREATE TABLE IF NOT EXISTS certificacion
     (
-      id NUMBER PRIMARY KEY AUTOINCREMENT,
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
       nombre TEXT NOT NULL,
       fecha_obtención TEXT NOT NULL,
       vencimiento INTEGER(1) NOT NULL,
       fecha_vencimiento TEXT
     );`;
-    return this.db.executeSql(tables);
+    return this.db.executeSql(tables, []);
   }
   /**
    * Retorna si existe un usuario activo o no.
@@ -96,6 +96,7 @@ export class DBTaskService {
     WHERE user_name=?`;
     return this.db.executeSql(sql, [sesion.active,sesion.user_name]);
   }
- 
+
+   
 
 }
