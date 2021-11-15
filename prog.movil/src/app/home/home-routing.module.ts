@@ -19,10 +19,10 @@ const routes: Routes = [
         path:'experiencias',
         component: ExperienciaLaboralComponent
       },
-      {
-        path:'perfil',
-        component: MisDatosComponent
-      }
+      // {
+      //   path:'perfil',
+      //   component: MisDatosComponent
+      // }
     ]
   },
 ];

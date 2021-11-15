@@ -27,7 +27,7 @@ export class HomePage {
    * se redirecciona a la url especifica
    */
   ionViewWillEnter(){
-    this.router.navigate(['home/perfil']);
+    this.router.navigate(['home/experiencias']);
   }
   /**
    * Función que permite cerrar la sesión actual
