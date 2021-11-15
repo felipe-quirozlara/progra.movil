@@ -19,14 +19,6 @@
     <ion-input type="text" [(ngModel)]="data.apellido"></ion-input>
   </ion-item>
   <ion-item class="ion-padding-horizontal">
-    <ion-label position="stacked" class="ion-padding-bottom">Educación</ion-label>
-    <ion-select placeholder="Seleccione nivel" [(ngModel)]="data.nivelEducacional">
-      <ion-select-option *ngFor="let niv of niveles" [value]="niv.id">
-        {{niv.nombre}}
-      </ion-select-option>
-    </ion-select>
-  </ion-item>
-  <ion-item class="ion-padding-horizontal">
     <ion-label position="stacked" class="ion-padding-bottom">Fecha Nacimiento</ion-label>
     <ion-input type="date" [(ngModel)]="data.fechaNacimiento"></ion-input>
   </ion-item>
@@ -44,20 +36,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-row>
-    <ion-col size="12">
-      <ion-button (click)="goApipage()"  expand="block" color="tertiary">
-        Página criticas
-      </ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col size="12">
-      <ion-button (click)="goQRpage()"  expand="block" color="danger">
-        Lector QR
-      </ion-button>
-    </ion-col>
-  </ion-row>
+
   <ion-row>
     <ion-col size="12">
       <ion-button (click)="go404()"  expand="block" color="secondary">

@@ -1,41 +1,49 @@
-<ion-content [fullscreen]="true" class="ion-padding-horizontal">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Certificados</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Nombre del certificado</ion-label>
-        <ion-input type="text"></ion-input>
-        <!--[(ngModel)]="data.nombre"  -->
-      </ion-item>
-      
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Fecha de obtención</ion-label>
-        <ion-input type="date"></ion-input>
-      </ion-item>
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">¿Vence?</ion-label>
-          <ion-checkbox></ion-checkbox>
-      </ion-item>
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Año de vencimiento</ion-label>
-        <ion-input type="date" ></ion-input>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="6">
-        <ion-button expand="block" shape="round">
-          Borra
-        </ion-button>
-      </ion-col>
-      <ion-col size="6">
-        <ion-button expand="block" shape="round">
-          Guardar
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>>
+
+ 
+<ion-content>
+  <ion-row>
+    <ion-col size="12">
+      <!-- Fallback for iOS PWA -->
+      <input #fileinput type="file" accept="image/*;capture=camera" hidden (change)="handleFile($event.target.files)">
+    
+      <!-- Trigger the file input -->
+      <ion-button expand="block" (click)="captureImage()" fill="outline" color="tertiary">
+        <ion-icon name="arrow-up-circle-outline"></ion-icon>
+        Escanear desde una imagen
+      </ion-button>
+    
+      <ion-button expand="block" (click)="startScan()">
+        <ion-icon slot="start" name="camera"></ion-icon>
+        Escanear con la camara
+      </ion-button>
+    
+      <ion-button expand="block" (click)="reset()" color="warning" *ngIf="scanResult">
+        <ion-icon slot="start" name="refresh"></ion-icon>
+        Resetear
+      </ion-button>
+    
+      <!-- Shows our camera stream -->
+      <video #video [hidden]="!scanActive" width="100%"></video>
+    
+      <!-- Used to render the camera stream images -->
+      <canvas #canvas hidden></canvas>
+    
+      <!-- Stop our scanner preview if active -->
+      <ion-button expand="full" (click)="stopScan()" color="danger" *ngIf="scanActive">
+        <ion-icon slot="start" name="close"></ion-icon>
+        Stop scan
+      </ion-button>
+    
+      <ion-card *ngIf="scanResult">
+        <ion-card-header>
+          <ion-card-title>QR Code</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ scanResult }}
+        </ion-card-content>
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+ 
+</ion-content>

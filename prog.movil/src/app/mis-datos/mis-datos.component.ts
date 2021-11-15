@@ -23,14 +23,7 @@ export class MisDatosComponent implements OnInit {
     this.getUser();
   }
   usuario:String;
-  public niveles:NivelEducacional[]=[
-    {id: 1, nombre: 'Básica Incompleta'},
-    {id: 2, nombre: 'Básica Completa'},
-    {id: 3, nombre: 'Media Incompleta'},
-    {id: 4, nombre: 'Media Completa'},
-    {id: 5, nombre: 'Superior Incompleta'},
-    {id: 6, nombre: 'Superior Completa'}
-  ]
+  
   public data: Persona = new Persona();
   constructor(public alertController: AlertController,private router: Router,private storage:Storage, private ionicStorage:IonicStorageService) {
 
@@ -78,7 +71,6 @@ export class MisDatosComponent implements OnInit {
           this.data.nombre = datos.nombre;
           this.data.apellido = datos.apellido;
           this.data.fechaNacimiento = datos.fechaNacimiento;
-          this.data.nivelEducacional = datos.nivelEducacional;
                    
         })
         .catch(err=>console.log()

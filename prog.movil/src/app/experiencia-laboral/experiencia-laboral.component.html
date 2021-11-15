@@ -1,49 +1,73 @@
-<ion-content [fullscreen]="true" class="ion-padding-horizontal">
 
 
+<ion-content [fullscreen]="true">
+  <ion-toolbar>
+    <ion-card>
+      <ion-item lines="none">
+        <span>
+          Publicador:&nbsp;
+        </span>
+        <!-- <ion-select placeholder="Seleccione un alumno"
+            class="ion-float-right"
+            [(ngModel)]="selectedUserId"
+            (ngModelChange)="cambiarUsuario($event)">
+          <ion-select-option *ngFor="let u of usuarios" [value]="u.id">
+            {{u.name}}
+          </ion-select-option>
+        </ion-select> -->
+      <p *ngIf="usuario">{{usuario}}</p>
+      </ion-item>
+    </ion-card>
+  </ion-toolbar>
+  <a id="topOfPage" href="#topOfPage"></a>
   <ion-card>
-    <ion-card-header>
-      <ion-card-title>Experencia Laboral</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Nombre de la empresa</ion-label>
-        <ion-input type="text" [(ngModel)]="data.nombre"></ion-input>
-        <!--[(ngModel)]="data.nombre"  -->
-      </ion-item>
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Cargo</ion-label>
-        <ion-input type="text" [(ngModel)]="data.cargo"></ion-input>
-        <!--[(ngModel)]="data.nombre"  -->
-      </ion-item>
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Año de inicio</ion-label>
-        <ion-input type="date" [(ngModel)]="data.anio"></ion-input>
-      </ion-item>
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked" >¿Actualmente trabajando?</ion-label>
-          <ion-checkbox [(ngModel)]="data.trabajando"></ion-checkbox>
-      </ion-item>
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Año de Fin</ion-label>
-        <ion-input type="date" [(ngModel)]="data.ano_fin"></ion-input>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="6">
-        <ion-button expand="block" shape="round" >
-          Borra
-        </ion-button>
-      </ion-col>
-      <ion-col size="6">
-        <ion-button expand="block" shape="round" >
-          Guardar
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  
-</ion-content>>
 
+    <ion-card-header>
+      <ion-card-title>Ingresa tu sugerencia</ion-card-title>
+    </ion-card-header>
+
+    <ion-item class="ion-padding-horizontal">
+      <ion-label position="floating" color="Secondary">Título</ion-label>
+      <ion-input [(ngModel)]="publicacion.title"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-padding-horizontal">
+      <ion-label position="floating" color="Secondary">Critica</ion-label>
+      <ion-textarea [(ngModel)]="publicacion.body"></ion-textarea>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col><ion-button shape="round" expand="block" (click)="limpiarPublicacion()">Limpiar</ion-button></ion-col>
+        <ion-col><ion-button shape="round" expand="block" (click)="guardarPublicacion()">Guardar</ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+
+  <ion-card class="sin-bordes">
+    <ion-card-title class="con-padding-top">Publicaciones recientes</ion-card-title>
+  </ion-card>
+
+  <ion-card *ngFor="let p of publicaciones; let i=index; trackBy: getIdentificadorItemPublicacion">
+
+    <ion-card-header>
+      <h6>(Sugerencias #{{p.id}}) {{p.name}}</h6>
+      <h4>{{p.title}}</h4>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{p.body}}
+    </ion-card-content>
+
+    <ion-button (click)="editarPublicacion(p)">
+      <ion-icon slot="icon-only" name="pencil-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button (click)="eliminarPublicacion(p)">
+      <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+    </ion-button>
+
+  </ion-card>
+
+</ion-content>
