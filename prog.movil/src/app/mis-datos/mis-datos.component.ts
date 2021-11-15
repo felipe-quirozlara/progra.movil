@@ -93,11 +93,18 @@ export class MisDatosComponent implements OnInit {
     this.storage.remove('datos'+this.usuario)
     .then(cal=>console.log("Datos removido"))
     .catch(cal=>console.log("No se pudo eliminar datos"))
-    
+    for (const [key, value] of Object.entries(this.data)) {
+  
+      Object.defineProperty(this.data, key, {value: ''});
+    }
   }
 
   goQRpage(){
     this.router.navigate(['/qrreader']);
+  }
+
+  go404(){
+    this.router.navigate(['/sdfsd'])
   }
 
   async presentAlert(titulo:string,message:string) {

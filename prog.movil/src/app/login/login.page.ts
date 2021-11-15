@@ -119,6 +119,15 @@ export class LoginPage implements OnInit {
     toast.present();
   }
 
+  deleteData(){
+    for (const [key, value] of Object.entries(this.login)) {
+  
+      Object.defineProperty(this.login, key, {value: ''});
+    }
+    
+    
+  }
+
   restablecer(){
     this.router.navigate(['/restablecer']);
   }

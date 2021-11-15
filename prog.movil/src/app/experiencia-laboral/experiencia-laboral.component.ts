@@ -12,11 +12,12 @@ export class ExperienciaLaboralComponent implements OnInit {
 
   constructor(
     public storageIonic:IonicStorageService,
-    public dbtask:DBTaskService
+    public dbtask:DBTaskService,
+    private storage:Storage
   ) {}
 
   ngOnInit() {
-    
+    this.usuario
     
   }
   
@@ -28,6 +29,13 @@ export class ExperienciaLaboralComponent implements OnInit {
     trabajando:0,
     ano_fin:0
   };
+
+  getUser(){
+    this.storage.get("USER_DATA")
+      .then((data)=>{
+        this.usuario = data.user_name
+      })
+  }
 
   
 
