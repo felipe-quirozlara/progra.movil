@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { APIClientService } from './../../services/apiclient.service';
 import { ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-api-page',
   templateUrl: './api-page.page.html',
@@ -8,11 +9,12 @@ import { ToastController } from '@ionic/angular';
 })
 export class ApiPagePage {
   selectedUserId: number;
+  usuario:String;
 
   usuarios: any;
 
   publicacion: any = {
-    userId: null,
+    userId: 1,
     id: null,
     title: '',
     body: '',
@@ -25,7 +27,8 @@ export class ApiPagePage {
 
   constructor(
     private api: APIClientService,
-    private toastController: ToastController) {
+    private toastController: ToastController,
+    private storage:Storage) {
   }
 
 
@@ -34,6 +37,14 @@ export class ApiPagePage {
     this.setPublicacion(null, null, '', '', '');
     this.getUsuarios();
     this.getPublicaciones();
+    this.getUser();
+  }
+
+  getUser(){
+    this.storage.get("USER_DATA")
+      .then((data)=>{
+        this.usuario = data.user_name
+      })
   }
 
 
@@ -50,7 +61,7 @@ export class ApiPagePage {
 
     // Establecer los datos de la publicación
 
-    this.publicacion.userId = userId;
+    this.publicacion.userId = 1;
     this.publicacion.id = pubId;
     this.publicacion.title = title;
     this.publicacion.body = body;

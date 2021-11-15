@@ -5,7 +5,7 @@
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
     <ion-title class="tituloPrincipal">
-      Criticas asistenciaApk
+      Criticas
     </ion-title>
   </ion-toolbar>
 
@@ -20,14 +20,15 @@
         <span>
           Publicador:&nbsp;
         </span>
-        <ion-select placeholder="Seleccione un alumno"
+        <!-- <ion-select placeholder="Seleccione un alumno"
             class="ion-float-right"
             [(ngModel)]="selectedUserId"
             (ngModelChange)="cambiarUsuario($event)">
           <ion-select-option *ngFor="let u of usuarios" [value]="u.id">
             {{u.name}}
           </ion-select-option>
-        </ion-select>
+        </ion-select> -->
+      <p *ngIf="usuario">{{usuario}}</p>
       </ion-item>
     </ion-card>
   </ion-toolbar>
