@@ -30,7 +30,7 @@ export class RegisterPage implements OnInit {
 
   guardar(){
     this.createSesionData(this.register);
-    this.router.navigate(["/login"])
+    
   }
 
   validateModel(model:any){
@@ -50,6 +50,7 @@ export class RegisterPage implements OnInit {
           return false;
         }
       }
+      this.router.navigate(["/login"]);
       return true;
     }
   }
