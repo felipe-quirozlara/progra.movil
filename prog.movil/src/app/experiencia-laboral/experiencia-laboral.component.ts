@@ -42,6 +42,7 @@ export class ExperienciaLaboralComponent {
     this.getUsuarios();
     this.getPublicaciones();
     this.getUser();
+    
   }
 
   getUser(){
