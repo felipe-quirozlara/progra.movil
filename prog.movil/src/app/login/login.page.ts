@@ -57,7 +57,8 @@ export class LoginPage implements OnInit {
     }
   }
   registrar(){
-    this.createSesionData(this.login);
+    // this.createSesionData(this.login);
+    this.router.navigate(['/register']);
   }
   /**
    * Función que genera (registra) una nueva sesión

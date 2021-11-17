@@ -33,10 +33,16 @@ const routes: Routes = [
     loadChildren: () => import('./qrreader/qrreader.module').then( m => m.QrreaderPageModule)
   },
   {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
     // En caso de cualquier error en la ruta se redirecciona al Not Found
     path: '**',
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
   }
+  
+
   
 
   
