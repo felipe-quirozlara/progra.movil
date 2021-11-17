@@ -12,19 +12,20 @@
   </ion-card-title>
   <img src="https://cdn-icons-png.flaticon.com/512/825/825569.png" alt="" class="qrImage">
   <ion-card>
+  <h1> Qr asistencia APP </h1>
     <ion-card-header>
       
     </ion-card-header>
     <ion-card-content>
-      <form >
+      <form [formGroup]="formularioLogin">
         <ion-item>
           <ion-label position="floating" >Nombre de Usuario</ion-label>
-          <ion-input type="text" [(ngModel)]="login.Usuario" name="usuario" placeholder="Usuario"></ion-input>
+          <ion-input formControlName="nombre" type="text" [(ngModel)]="login.Usuario" name="usuario" placeholder="Usuario"></ion-input>
           
         </ion-item>
         <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password" [(ngModel)]="login.Password" name="password" placeholder="****"></ion-input>
+          <ion-input formControlName="password" type="password" [(ngModel)]="login.Password" name="password" placeholder="****"></ion-input>
         </ion-item>
         <ion-grid fixed>
           <ion-row>
@@ -95,5 +96,12 @@
         </ion-col>
     </ion-row>
   </ion-grid>
+  <ion-footer>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/registro']">Registrarse</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
 </ion-content>
 

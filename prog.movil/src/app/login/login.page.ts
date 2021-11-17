@@ -5,6 +5,12 @@ import { DBTaskService } from '../services/dbtask.service';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { AuthenticationService } from '../services/authentication.service';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder
+} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +18,10 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
+  formularioLogin: FormGroup;
+
+  
   // Modelo user que permite obtener y setear información para el login
   login:any={
     Usuario:"",
@@ -26,7 +36,14 @@ export class LoginPage implements OnInit {
     private router: Router,
     private storage: Storage,
     public authenticationSerive:AuthenticationService,
-    private animationCtrl: AnimationController) {}
+    private animationCtrl: AnimationController,
+    public fb: FormBuilder) {
+      this.formularioLogin = this.fb.group({
+        'nombre': new FormControl("",Validators.required),
+        'password': new FormControl("",Validators.required)
+      })
+    }
+
   ngOnInit() {
     const image = this.animationCtrl.create()
       .addElement(document.querySelector('.qrImage'))
@@ -42,20 +59,30 @@ export class LoginPage implements OnInit {
 
     image.play();
   }
+
+  async ingresar(){
+    var f = this.formularioLogin.value;
+
+    var usuario = JSON.parse(localStorage.getItem('usuario'));
+
+    if(usuario.nombre == f.nombre && usuario.password == f.password){
+      console.log('Ingresado');
+    }else{
+      const alert = await this.alertController.create({
+        header: 'Datos incorrectos',
+        message: 'Los datos que ingresaste son incorrectos.',
+        buttons: ['Aceptar']
+      });
+  
+      await alert.present();
+    }
+  }
+
   /**
    * Función que permite el inicio de sesión y acceder
    * al Home
    */
-  ingresar(){
-    // Se valida que el usuario ingreso todos los datos
-    if(this.validateModel(this.login)){
-      // Se obtiene si existe alguna data de sesión
-      this.authenticationSerive.login(this.login);
-    }
-    else{
-      this.presentToast("Falta: "+this.field);
-    }
-  }
+  
   registrar(){
     this.createSesionData(this.login);
   }

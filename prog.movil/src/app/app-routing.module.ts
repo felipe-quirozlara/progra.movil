@@ -20,6 +20,7 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
+  
   {
     path: 'api-page',
     loadChildren: () => import('./pages/api-page/api-page.module').then( m => m.ApiPagePageModule)
@@ -36,7 +37,16 @@ const routes: Routes = [
     // En caso de cualquier error en la ruta se redirecciona al Not Found
     path: '**',
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
+  {
+    path: 'registrar-usuario',
+    loadChildren: () => import('./registro-usuario/registro-usuario-routing.module').then( m => m.RegistroPageRoutingModule)
+  },
+  {
+    path: 'registro-usuario',
+    loadChildren: () => import('./registro-usuario/registro-usuario.module').then( m => m.RegistroUsuarioPageModule)
   }
+
   
 
   

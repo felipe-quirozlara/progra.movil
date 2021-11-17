@@ -19,7 +19,7 @@ export class RestablecerPage implements OnInit {
   }
 
   login(){
-    this.presentToast("Se ha enviado un correo electronico para recuperar la contraseña");
+    this.presentToast("Se ha enviado un correo electrónico para recuperar la contraseña");
     this.router.navigate(['/login'])
   }
 
