@@ -1,22 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController, AlertController, AnimationController } from '@ionic/angular';
-
+import { NavController  } from '@ionic/angular';
 import { DBTaskService } from '../services/dbtask.service';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { AuthenticationService } from '../services/authentication.service';
+<<<<<<< Updated upstream
 import {
   FormGroup,
   FormControl,
   Validators,
   FormBuilder
 } from '@angular/forms';
+=======
+import { Routes, RouterModule } from '@angular/router';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
+
 export class LoginPage implements OnInit {
 
   formularioLogin: FormGroup;
@@ -37,6 +43,7 @@ export class LoginPage implements OnInit {
     private storage: Storage,
     public authenticationSerive:AuthenticationService,
     private animationCtrl: AnimationController,
+<<<<<<< Updated upstream
     public fb: FormBuilder) {
       this.formularioLogin = this.fb.group({
         'nombre': new FormControl("",Validators.required),
@@ -44,6 +51,9 @@ export class LoginPage implements OnInit {
       })
     }
 
+=======
+    public navCtrl: NavController) {}
+>>>>>>> Stashed changes
   ngOnInit() {
     const image = this.animationCtrl.create()
       .addElement(document.querySelector('.qrImage'))
@@ -86,6 +96,8 @@ export class LoginPage implements OnInit {
   registrar(){
     this.createSesionData(this.login);
   }
+
+ 
   /**
    * Función que genera (registra) una nueva sesión
    * @param login 
@@ -157,6 +169,9 @@ export class LoginPage implements OnInit {
 
   restablecer(){
     this.router.navigate(['/restablecer']);
+  }
+  registrarse(){
+    this.router.navigate(['/registrarse']);
   }
   /**
    * Función parte del ciclo de vida de un componente

@@ -1,24 +1,7 @@
 
 
 <ion-content [fullscreen]="true">
-  <ion-toolbar>
-    <ion-card>
-      <ion-item lines="none">
-        <span>
-          Publicador:&nbsp;
-        </span>
-        <!-- <ion-select placeholder="Seleccione un alumno"
-            class="ion-float-right"
-            [(ngModel)]="selectedUserId"
-            (ngModelChange)="cambiarUsuario($event)">
-          <ion-select-option *ngFor="let u of usuarios" [value]="u.id">
-            {{u.name}}
-          </ion-select-option>
-        </ion-select> -->
-      <p *ngIf="usuario">{{usuario}}</p>
-      </ion-item>
-    </ion-card>
-  </ion-toolbar>
+  
   <a id="topOfPage" href="#topOfPage"></a>
   <ion-card>
 
@@ -32,7 +15,7 @@
     </ion-item>
 
     <ion-item class="ion-padding-horizontal">
-      <ion-label position="floating" color="Secondary">Critica</ion-label>
+      <ion-label position="floating" color="Secondary">Sugerencia</ion-label>
       <ion-textarea [(ngModel)]="publicacion.body"></ion-textarea>
     </ion-item>
 

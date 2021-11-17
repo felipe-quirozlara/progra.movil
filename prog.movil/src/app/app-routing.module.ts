@@ -26,6 +26,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/api-page/api-page.module').then( m => m.ApiPagePageModule)
   },
   {
+    path: 'registrarse',
+    loadChildren: () => import('./registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
+  },
+  {
     path: 'restablecer',
     loadChildren: () => import('./restablecer/restablecer.module').then( m => m.RestablecerPageModule)
   },
@@ -38,6 +42,7 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
+<<<<<<< Updated upstream
   {
     path: 'registrar-usuario',
     loadChildren: () => import('./registro-usuario/registro-usuario-routing.module').then( m => m.RegistroPageRoutingModule)
@@ -46,6 +51,9 @@ const routes: Routes = [
     path: 'registro-usuario',
     loadChildren: () => import('./registro-usuario/registro-usuario.module').then( m => m.RegistroUsuarioPageModule)
   }
+=======
+ 
+>>>>>>> Stashed changes
 
   
 
