@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { IonicStorageService } from './ionic-storage.service';
 
@@ -6,7 +7,11 @@ describe('IonicStorageService', () => {
   let service: IonicStorageService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports:[
+        IonicStorageModule.forRoot(),
+      ]
+    });
     service = TestBed.inject(IonicStorageService);
   });
 

@@ -9,6 +9,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ExperienciaLaboralComponent } from '../experiencia-laboral/experiencia-laboral.component';
 import { CertificacionesComponent } from '../certificaciones/certificaciones.component';
 import { MisDatosComponent } from '../mis-datos/mis-datos.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterModule, Routes } from '@angular/router';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { MisDatosComponent } from '../mis-datos/mis-datos.component';
     FormsModule,
     IonicModule,
     // See: HomePageRoutingModule
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    HttpClientTestingModule,
+    RouterModule.forRoot([])
   ],
   declarations: [
     HomePage,

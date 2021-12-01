@@ -22,7 +22,7 @@
         </span>
         <!-- <ion-select placeholder="Seleccione un alumno"
             class="ion-float-right"
-            [(ngModel)]="selectedUserId"
+            ([ngModel])="selectedUserId"
             (ngModelChange)="cambiarUsuario($event)">
           <ion-select-option *ngFor="let u of usuarios" [value]="u.id">
             {{u.name}}
@@ -41,12 +41,12 @@
 
     <ion-item class="ion-padding-horizontal">
       <ion-label position="floating" color="Secondary">Título</ion-label>
-      <ion-input [(ngModel)]="publicacion.title"></ion-input>
+      <ion-input ([ngModel])="publicacion.title"></ion-input>
     </ion-item>
 
     <ion-item class="ion-padding-horizontal">
       <ion-label position="floating" color="Secondary">Critica</ion-label>
-      <ion-textarea [(ngModel)]="publicacion.body"></ion-textarea>
+      <ion-textarea ([ngModel])="publicacion.body"></ion-textarea>
     </ion-item>
 
     <ion-grid>

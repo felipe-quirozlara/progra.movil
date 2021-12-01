@@ -1,0 +1,5 @@
+keytool -genkey -v -keystore D:\Code\progr.movil\progra.movil\prog.movil\keystore -alias key_ionic_app -keyalg RSA -keysize 2048 -validity 10000
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore "D:\Code\progr.movil\progra.movil\prog.movil\keystore\release-key.keystore" "D:\Code\progr.movil\progra.movil\prog.movil\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk" key_ionic_app
+
+zipalign.exe -v 4 "D:\Code\progr.movil\progra.movil\prog.movil\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk" "D:\Code\progr.movil\progra.movil\prog.movil\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk"

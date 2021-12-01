@@ -19,12 +19,12 @@
       <form >
         <ion-item>
           <ion-label position="floating" >Nombre de Usuario</ion-label>
-          <ion-input type="text" [(ngModel)]="login.Usuario" name="usuario" placeholder="Usuario"></ion-input>
+          <ion-input type="text" ([ngModel])="login.Usuario" name="usuario" placeholder="Usuario"></ion-input>
           
         </ion-item>
         <ion-item>
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password" [(ngModel)]="login.Password" name="password" placeholder="****"></ion-input>
+          <ion-input type="password" ([ngModel])="login.Password" name="password" placeholder="****"></ion-input>
         </ion-item>
         <ion-grid fixed>
           <ion-row>
